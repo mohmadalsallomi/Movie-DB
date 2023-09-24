@@ -9,7 +9,7 @@ app.get('/test',(req,res)=>{
 })
 
 app.get('/time',(req,res)=>{
-    res.json({status:200,message:Date()})
+    res.json({status:200, message:Date()})
 })
 
 app.listen(3000,()=>{
