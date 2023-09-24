@@ -4,5 +4,15 @@ app.get("/",(req,res)=> {
     console.log("here")
     res.json('ok')
 } )
-app.listen(3000)
+app.get('/test',(req,res)=>{
+    res.json({status:200,message:"ok it's done"})
+})
+
+app.get('/time',(req,res)=>{
+    res.json({status:200,message:Date()})
+})
+
+app.listen(3000,()=>{
+    console.log("connected on port 3000")
+})
 
