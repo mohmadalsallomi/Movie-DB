@@ -28,7 +28,6 @@ app.get('/search?s=<SEARCH>', (req, res) => {
         res.status(500).json({ status: 500, error: true, message: "you have to provide a search" });
     }
 });
-
 const movies = [
     { title: 'Jaws', year: 1975, rating: 8 },
     { title: 'Avatar', year: 2009, rating: 7.8 },
@@ -36,7 +35,23 @@ const movies = [
     { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
 ];
 
-// Route to read movies
 app.get('/movies/read', (req, res) => {
     res.json({ status: 200, data: movies });
+});
+
+app.get('/movies/read/by-date', (req, res) => {
+    const moviesByDate = movies.sort((a, b) => a.year - b.year);
+    res.json({ status: 200, data: moviesByDate });
+});
+
+
+app.get('/movies/read/by-rating', (req, res) => {
+    const moviesByRating = movies.sort((a, b) => b.rating - a.rating);
+    res.json({ status: 200, data: moviesByRating });
+});
+
+
+app.get('/movies/read/by-title', (req, res) => {
+    const moviesByTitle = movies.sort((a, b) => a.title.localeCompare(b.title));
+    res.json({ status: 200, data: moviesByTitle });
 });
