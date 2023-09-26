@@ -140,7 +140,7 @@ Initially, you'll be working on a proof-of-concept using arrays and objects to s
 ## Step 9 - DELETE (20x🔑)
 
 - With Express, make it so that when the url `movies/delete/<ID>` is requested, you delete the corresponding movie, and answer with the new list of movies, just like for `/movies/read`. if the id does not exist, answer with `{status:404, error:true, message:'the movie <ID> does not exist'}`
-- commit ("step 9") 
+- commit ("step 9")
 
 ## Step 10 - UPDATE (5x🔑)
 
