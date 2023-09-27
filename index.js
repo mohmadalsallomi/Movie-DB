@@ -46,13 +46,13 @@ app.get('/movies/read/by-title', (req, res) => {
     res.json({ status: 200, data: moviesByTitle });
 });
 app.get('/movies/read/id/:id', (req, res) => {
-  const movieId = parseInt(req.params.id);
-  const movie = movies[movieId - 1]; 
+  const moviesid = parseInt(req.params.id);
+  const movie = movies[moviesid - 1]; 
   if (!movie) {
     res.status(404).json({
       status: 404,
       error: true,
-      message: `the movie ${movieId} does not exist`,
+      message: `the movie ${moviesid} does not exist`,
     });
   } else {
     res.status(200).json({
@@ -87,7 +87,14 @@ app.get('/movies/add', (req, res) => {
 
 
 
-
-
+app.get('/movies/delete/:id', (req,res)=>{
+  const {id}=req.params;
+  if(id>movies.length || id<1){
+      res.status(404).json({status:404, error:true, message:`The movie ${id} does not exist`})
+  } else{
+      movies.splice(id-1, 1);
+      res.status(200).json(movies)
+  }
+})
 
 
